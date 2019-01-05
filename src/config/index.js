@@ -13,5 +13,8 @@ export default {
         level: 'debug'
       }
     ]
+  },
+  emailService: {
+    sendgridAPIKey: process.env.SENDGRID_API_KEY
   }
 }
