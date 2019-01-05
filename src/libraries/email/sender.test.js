@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { send } from './sender'
 import Sendgrid from './sendgrid'
 import Sparkpost from './sparkpost'
@@ -24,9 +25,8 @@ test('should get response from Sparkpost when service is Sparkpost', async () =>
 
 test('should get error when service is dummy', async () => {
   try {
-    const result = await send({ service: 'sparkpdsadsadost' })
-  }
-  catch (err) {
+    await send({ service: 'sparkpdsadsadost' })
+  } catch (err) {
     expect(err.message).toBe('Email service is invalid')
   }
 })
