@@ -27,9 +27,7 @@ app.use(
   })
 )
 app.use(compress())
-app.use(
-  cors()
-)
+app.use(cors())
 app.use(requestId())
 app.use(responseHandler())
 app.use(errorCatcher)

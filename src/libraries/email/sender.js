@@ -1,9 +1,11 @@
-const sendMail = ({to, from, subject, text, html, service}) => {
+import Sendgrid from './sendgrid'
+
+const sendMail = async ({ to, from, subject, text, html, service }) => {
   if (service === 'sendgrid') {
-    //
-  } else {
-    throw new Error('Email service is invalid')
+    const result = await Sendgrid({ to, from, subject, text, html })
+    return result
   }
+  throw new Error('Email service is invalid')
 }
 
 export default sendMail
