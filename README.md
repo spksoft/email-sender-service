@@ -1,1 +1,1 @@
-# koa-backend-boilerplate
+# email-sender-service
