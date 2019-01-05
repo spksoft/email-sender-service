@@ -1,9 +1,11 @@
 import sgMail from '@sendgrid/mail'
 import sendgrid from './sendgrid'
 
+// eslint-disable-next-line no-undef
 jest.mock('@sendgrid/mail')
 
-test('sgMail.setApiKey and sgMail.send called', async () => {
+// eslint-disable-next-line no-undef
+test('sgMail.send called', async () => {
   sgMail.send.mockResolvedValue('sent')
 
   const result = await sendgrid({
@@ -13,5 +15,6 @@ test('sgMail.setApiKey and sgMail.send called', async () => {
     text: 'test',
     html: 'test'
   })
+  // eslint-disable-next-line no-undef
   expect(result).toBe('sent')
 })
