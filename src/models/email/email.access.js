@@ -6,6 +6,7 @@ export const getAll = async () => {
 }
 
 export const getFromEmail = async email => {
+  console.log(email)
   const result = await Email.find({ $or: [{ from: email }, { to: email }] })
   return result
 }

@@ -1,5 +1,5 @@
 import { HttpMethod, route } from '@spksoft/koa-decorator'
-import { send } from './email.flow'
+import { send, search } from './email.flow'
 
 @route('/v1/email')
 class Email {
@@ -8,7 +8,17 @@ class Email {
     const { to, from, subject, text, html } = ctx.request.body
     await send({ to, from, subject, text, html })
     ctx.res.ok({
-      body: 'sended'
+      data: 'sent',
+      message: 'ok'
+    })
+  }
+
+  @route('/', HttpMethod.GET)
+  async search(ctx) {
+    const result = await search(ctx.request.query.email || null)
+    ctx.res.ok({
+      data: result || [],
+      message: 'ok'
     })
   }
 }
