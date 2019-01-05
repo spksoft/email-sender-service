@@ -28,11 +28,7 @@ app.use(
 )
 app.use(compress())
 app.use(
-  cors({
-    origin: '*',
-    allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'PATCH'],
-    exposeHeaders: ['X-Request-Id']
-  })
+  cors()
 )
 app.use(requestId())
 app.use(responseHandler())
