@@ -2,7 +2,7 @@ import { add } from '../../models/email/email.access'
 import Sendgrid from './sendgrid'
 import Sparkpost from './sparkpost'
 
-const send = async ({ to, from, subject, text, html, service }) => {
+export const send = async ({ to, from, subject, text, html, service }) => {
   if (service === 'sendgrid') {
     const result = await Sendgrid({ to, from, subject, text, html })
     return result

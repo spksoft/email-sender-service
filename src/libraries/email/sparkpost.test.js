@@ -1,10 +1,9 @@
+/* eslint-disable no-undef */
 import axios from 'axios'
 import sparkpost from './sparkpost'
 
-// eslint-disable-next-line no-undef
 jest.mock('axios')
 
-// eslint-disable-next-line no-undef
 test('axios.post called', async () => {
   axios.post.mockResolvedValue('sent')
 
@@ -13,6 +12,5 @@ test('axios.post called', async () => {
     subject: 'test',
     text: 'test'
   })
-  // eslint-disable-next-line no-undef
   expect(result).toBe('sent')
 })
