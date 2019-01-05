@@ -5,8 +5,8 @@ import { send } from './email.flow'
 class Email {
   @route('/send', HttpMethod.POST)
   async send(ctx) {
-    const { to, from, subject, text, html, service } = ctx.request.body
-    await send({ to, from, subject, text, html, service })
+    const { to, from, subject, text, html } = ctx.request.body
+    await send({ to, from, subject, text, html })
     ctx.res.ok({
       body: 'sended'
     })
