@@ -15,6 +15,7 @@ export default {
     ]
   },
   emailService: {
-    sendgridAPIKey: process.env.SENDGRID_API_KEY
+    sendgridAPIKey: process.env.SENDGRID_API_KEY,
+    sparkpostAPIKey: process.env.SPARKPOST_API_KEY
   }
 }
