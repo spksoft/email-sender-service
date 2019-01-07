@@ -4,7 +4,7 @@ import sendgrid from './sendgrid'
 
 jest.mock('@sendgrid/mail')
 
-test('sgMail.send called', async () => {
+test('sgMail.send should called', async () => {
   sgMail.send.mockResolvedValue('sent')
 
   const result = await sendgrid({
@@ -14,6 +14,6 @@ test('sgMail.send called', async () => {
     text: 'test',
     html: 'test'
   })
-  
+
   expect(result).toBe('sent')
 })

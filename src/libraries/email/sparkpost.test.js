@@ -4,7 +4,7 @@ import sparkpost from './sparkpost'
 
 jest.mock('axios')
 
-test('axios.post called', async () => {
+test('axios.post should called', async () => {
   axios.post.mockResolvedValue('sent')
 
   const result = await sparkpost({
