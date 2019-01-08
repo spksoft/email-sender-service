@@ -1,0 +1,24 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    docker:
+      - image: alpine
+    working_directory: ~
+    steps:
+      - checkout
+      - run: apk update
+      - run: apk add openssh
+      - run: rm -rf ~/.ssh
+      - run: mkdir ~/.ssh
+      - run: echo $privatekey > temp_base64_private
+      - run: base64 -d temp_base64_private > ~/.ssh/id_rsa
+      - run: chmod 600 ~/.ssh/id_rsa
+      - run: rm -rf temp_base64_private
+      - run: ssh -o "StrictHostKeyChecking no" -t $host_username@$host_ip "source ~/script-clone-emailsenderservice.sh"
